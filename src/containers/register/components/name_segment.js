@@ -4,10 +4,7 @@ import { Link } from 'react-router-dom'
 import {
   Segment,
   Grid,
-  Header,
   Form,
-  Popup,
-  Item,
 } from 'semantic-ui-react'
 
 class NameSegment extends React.Component {
