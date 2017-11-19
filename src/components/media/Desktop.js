@@ -6,10 +6,6 @@ const Desktop = ({ children }) => {
 }
 
 Desktop.propTypes = {
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.object,
-    React.PropTypes.array,
-  ]),
 }
 
 export default Desktop

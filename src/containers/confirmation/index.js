@@ -2,44 +2,70 @@ import React, { Component } from 'react'
 import {
   Segment,
   Header,
-  Button,
 } from 'semantic-ui-react'
 
+import Mobile from '../../components/media/Mobile'
+import DesktopTablet from '../../components/media/DesktopTablet'
+
 const HEADER_TEXT = 'All done!'
-const SUBHEADER_TEXT_1 = 'Thank you for you application to Instacart.'
+const SUBHEADER_TEXT_1 = 'Thank you for applying to Instacart.'
 const SUBHEADER_TEXT_2 = 'We will contact you as soon as we find an opening.'
 
 class Confirmation extends Component {
-  constructor(props) {
-    super(props)
-    console.log('tesst')
+  renderSegment = () => {
+    return [
+      <Header content={ HEADER_TEXT } style={ headerStyle }/>,
+      <Header content={ SUBHEADER_TEXT_1 } style={ subHeaderStyle }/>,
+      <Header content={ SUBHEADER_TEXT_2 } style={ subHeaderStyle }/>,
+    ]
   }
 
   render() {
     return (
-      <div style={ divStyle }>
-        <Segment padded='very' textAlign='center'
-          className='m0 borderRadius0 background-lightgray shadow-inset'
-          style={ segmentStyle }>
-          <Header content={ HEADER_TEXT } style={ headerStyle }/>
-          <Header content={ SUBHEADER_TEXT_1 } style={ subHeaderStyle }/>
-          <Header content={ SUBHEADER_TEXT_2 } style={ subHeaderStyle }/>
-        </Segment>
+      <div>
+        <DesktopTablet>
+          <div style={ dtDivStyle }>
+            <Segment padded='very' textAlign='center'
+              style={ dtSegmentStyle }>
+              { this.renderSegment() }
+            </Segment>
+          </div>
+        </DesktopTablet>
+
+        <Mobile>
+          <div style={ mobileDivStyle }>
+            <Segment padded='very' textAlign='center'
+              style={ mobileSegmentStyle }>
+              { this.renderSegment() }
+            </Segment>
+          </div>
+        </Mobile>
       </div>
     )
   }
 }
 
-const segmentStyle = {
+const dtSegmentStyle = {
   width: '70%',
   margin: 'auto',
 }
 
-const divStyle = {
+const dtDivStyle = {
   backgroundColor: 'khaki',
   height: '100vh',
   width: '100vw',
   padding: '3em',
+}
+
+const mobileSegmentStyle = {
+  margin: 'auto',
+}
+
+const mobileDivStyle = {
+  backgroundColor: 'khaki',
+  height: '100vh',
+  width: '100vw',
+  padding: '1.5em',
 }
 
 const headerStyle = {

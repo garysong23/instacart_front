@@ -6,10 +6,6 @@ const Mobile = ({ children }) => {
 }
 
 Mobile.propTypes = {
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.object,
-    React.PropTypes.array,
-  ]),
 }
 
 export default Mobile

@@ -9,6 +9,7 @@ import {
 } from 'semantic-ui-react'
 
 const HEADER_TEXT = 'Please verify the following'
+const CHECKBOX_COPY = 'I meet all of the requirements above'
 const REQUIREMENTS = [
   'Able to lift between 30-40 lbs with or without an accommodation',
   'Eligible to work in the United States',
@@ -46,7 +47,7 @@ class RequirementsSegment extends React.Component {
           <Form size='large' onSubmit={ this.props.onSubmit }>
             <Header content={ HEADER_TEXT } style={ headerStyle }/>
             { this.generateConditions() }
-            <Checkbox label='I meet all of the requirements above' style={ checkStyle }/>
+            <Checkbox label={ CHECKBOX_COPY } style={ checkStyle }/>
             <Form.Button color='blue' center size='large'
               style={ buttonStyle }>
               Next
@@ -75,6 +76,7 @@ const requirementStyle = {
 const checkStyle = {
   fontWeight: 'normal',
   fontSize: '1em',
+  textAlign: 'left',
 }
 
 const buttonStyle = {

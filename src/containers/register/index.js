@@ -4,6 +4,9 @@ import {
   Segment,
 } from 'semantic-ui-react'
 
+import Mobile from '../../components/media/Mobile'
+import DesktopTablet from '../../components/media/DesktopTablet'
+
 import NameSegment from './components/name_segment'
 import CarSegment from './components/car_segment'
 import PhoneModelSegment from './components/phone_model_segment'
@@ -76,27 +79,50 @@ class Register extends Component {
 
   render() {
     return (
-      <div style={ divStyle }>
-        <Segment padded='very' textAlign='center'
-          style={ segmentStyle }>
-          { this.renderSegment() }
-        </Segment>
+      <div>
+        <DesktopTablet>
+          <div style={ dtDivStyle }>
+            <Segment padded='very' textAlign='center'
+              style={ dtSegmentStyle }>
+              { this.renderSegment() }
+            </Segment>
+          </div>
+        </DesktopTablet>
+
+        <Mobile>
+          <div style={ mobileDivStyle }>
+            <Segment padded textAlign='center'
+              style={ mobileSegmentStyle }>
+              { this.renderSegment() }
+            </Segment>
+          </div>
+        </Mobile>
       </div>
     )
   }
 }
 
-const segmentStyle = {
+const dtSegmentStyle = {
   width: '70%',
   margin: 'auto',
 }
 
-const divStyle = {
+const dtDivStyle = {
   backgroundColor: 'khaki',
   height: '100vh',
   width: '100vw',
   padding: '3em',
 }
 
+const mobileSegmentStyle = {
+  margin: 'auto',
+}
+
+const mobileDivStyle = {
+  backgroundColor: 'khaki',
+  height: '100vh',
+  width: '100vw',
+  padding: '1.5em',
+}
 
 export default withRouter(Register)

@@ -9,10 +9,6 @@ const TabletMobile = ({ children }) => {
 }
 
 TabletMobile.propTypes = {
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.object,
-    React.PropTypes.array,
-  ]),
 }
 
 export default TabletMobile
