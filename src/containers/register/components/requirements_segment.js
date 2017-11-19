@@ -2,18 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import {
-  Segment,
   Grid,
   Header,
   Form,
   Checkbox,
 } from 'semantic-ui-react'
 
-const HEADER_TEXT = 'Hi'
+const HEADER_TEXT = 'Please verify the following'
 const REQUIREMENTS = [
+  'Able to lift between 30-40 lbs with or without an accommodation',
+  'Eligible to work in the United States',
+  'Consent to a background check',
   'Be 18 or over',
-  'Be able to lift between 30-40 lbs with or without an accommodation',
-  'Be eligible to work in the United States',
 ]
 
 class RequirementsSegment extends React.Component {
@@ -27,23 +27,58 @@ class RequirementsSegment extends React.Component {
 
   handleChange = () => this.setState({ showError: false })
 
+  generateConditions = () => {
+    const conditions = []
+    for (const requirement of REQUIREMENTS) {
+      const contentStr = '•  ' + requirement
+      conditions.push(
+        <Header textAlign='left' content={ contentStr }
+          style={ requirementStyle }/>
+      )
+    }
+    return conditions
+  }
+
   render() {
     return(
-      <Segment padded>
-        <Grid padded>
-          <Grid.Column textAlign='center'>
-            <Form size='large' onSubmit={ this.props.onSubmit }>
-              <Header content={ HEADER_TEXT }/>
-              <Checkbox label='I agree to everything' />
-              <Form.Button color='blue' fluid size='large'>
-                Next
-              </Form.Button>
-            </Form>
-          </Grid.Column>
-        </Grid>
-      </Segment>
+      <Grid padded>
+        <Grid.Column textAlign='center'>
+          <Form size='large' onSubmit={ this.props.onSubmit }>
+            <Header content={ HEADER_TEXT } style={ headerStyle }/>
+            { this.generateConditions() }
+            <Checkbox label='I meet all of the requirements above' style={ checkStyle }/>
+            <Form.Button color='blue' center size='large'
+              style={ buttonStyle }>
+              Next
+            </Form.Button>
+          </Form>
+        </Grid.Column>
+      </Grid>
     )
   }
+}
+
+const headerStyle = {
+  fontWeight: 'normal',
+  fontSize: '1.5em',
+  marginBottom: '1.5em',
+  marginTop: '0',
+}
+
+const requirementStyle = {
+  fontWeight: 'normal',
+  fontSize: '1em',
+  marginBottom: '1.5em',
+  marginTop: '0',
+}
+
+const checkStyle = {
+  fontWeight: 'normal',
+  fontSize: '1em',
+}
+
+const buttonStyle = {
+  marginTop: '1.25em',
 }
 
 RequirementsSegment.propTypes = {

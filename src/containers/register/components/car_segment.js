@@ -7,6 +7,7 @@ import {
   Header,
   Form,
   Radio,
+  Divider,
 } from 'semantic-ui-react'
 
 const QUESTION_1 = 'Do you own or have consistent access to a car?'
@@ -25,41 +26,59 @@ class CarSegment extends React.Component {
 
   render() {
     return(
-      <Segment padded>
-        <Grid padded>
-          <Grid.Column textAlign='center'>
-            <Form size='large' onSubmit={ this.props.onSubmit }>
-              <Header content={ QUESTION_1 }/>
-              <Form.Field>
-                <Radio name='radio1'
-                  label='Choose this' value='this'
-                  checked={this.state.value === 'this'}
-                  onChange={this.handleChange}/>
-                <Radio name='radio1'
-                  label='Or that' value='that'
-                  checked={this.state.value === 'that'}
-                  onChange={this.handleChange}/>
-              </Form.Field>
-              <Header content={ QUESTION_2 }/>
-              <Form.Field>
-                <Radio name='radio2'
-                  label='Choose this' value='this'
-                  checked={this.state.value === 'this'}
-                  onChange={this.handleChange}/>
-                <Radio name='radio2'
-                  label='Or that' value='that'
-                  checked={this.state.value === 'that'}
-                  onChange={this.handleChange}/>
-              </Form.Field>
-              <Form.Button color='blue' fluid size='large'>
-                Next
-              </Form.Button>
-            </Form>
-          </Grid.Column>
-        </Grid>
-      </Segment>
+      <Grid padded>
+        <Grid.Column textAlign='center'>
+          <Form size='large' onSubmit={ this.props.onSubmit }>
+            <Header textAlign='left'
+              content={ QUESTION_1 } style={ questionStyle }/>
+            <Form.Field style={ optionStyle }>
+              <Radio label='Or that' name='radioGroup' value='that'
+                style={ optionTextStyle }/>
+            </Form.Field>
+            <Form.Field style={ optionStyle }>
+              <Radio label='Or that' name='radioGroup' value='that'
+                style={ optionTextStyle }/>
+            </Form.Field>
+            <Divider hidden/>
+            <Header textAlign='left'
+              content={ QUESTION_2 } style={ questionStyle }/>
+            <Form.Field style={ optionStyle }>
+              <Radio label='Or that' name='radioGroup' value='that'
+                style={ optionTextStyle }/>
+            </Form.Field>
+            <Form.Field style={ optionStyle }>
+              <Radio label='Or that' name='radioGroup' value='that'
+                style={ optionTextStyle }/>
+            </Form.Field>
+            <Form.Button color='blue' center size='huge'
+              style={ buttonStyle }>
+              Next
+            </Form.Button>
+          </Form>
+        </Grid.Column>
+      </Grid>
     )
   }
+}
+
+const questionStyle = {
+  fontWeight: 'normal',
+  fontSize: '1.25em',
+  marginBottom: '1.5em',
+  marginTop: '0',
+}
+
+const optionStyle = {
+  textAlign: 'left',
+  marginLeft: '1.25em',
+}
+
+const optionTextStyle = {
+  fontSize: '1em',
+}
+
+const buttonStyle = {
+  marginTop: '1.25em',
 }
 
 CarSegment.propTypes = {

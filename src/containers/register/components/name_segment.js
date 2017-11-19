@@ -23,36 +23,48 @@ class NameSegment extends React.Component {
 
   render() {
     return(
-      <Segment padded>
-        <Grid padded>
-          <Grid.Column textAlign='center'>
-            <Header
-              className='font2-5 mb1-25 mt0-5'
-              content={ HEADER_TEXT }/>
-            <Header
-              className='fw-normal font1-75 mt0 mb1-5'
-              content={ SUBHEADER_TEXT }/>
-            <Form size='large'
-              onSubmit={ this.props.onSubmit }>
-              <Form.Field>
-                <Form.Input fluid name='password' icon='lock'
-                  iconPosition='left' placeholder='First name'
-                  error={ this.state.showError }/>
-              </Form.Field>
-              <Form.Field>
-                <Form.Input fluid name='inviteCode' icon='ticket'
-                  iconPosition='left' placeholder='Last name'
-                  error={ this.state.showError }/>
-              </Form.Field>
-              <Form.Button color='blue' center size='large'>
-                Next
-              </Form.Button>
-            </Form>
-          </Grid.Column>
-        </Grid>
-      </Segment>
+      <Grid padded>
+        <Grid.Column textAlign='center'>
+          <Header content={ HEADER_TEXT } style={ headerStyle }/>
+          <Header content={ SUBHEADER_TEXT } style={ subHeaderStyle }/>
+          <Form size='large'
+            onSubmit={ this.props.onSubmit }>
+            <Form.Field>
+              <Form.Input fluid name='password' icon='lock'
+                iconPosition='left' placeholder='First name'
+                error={ this.state.showError }/>
+            </Form.Field>
+            <Form.Field>
+              <Form.Input fluid name='inviteCode' icon='ticket'
+                iconPosition='left' placeholder='Last name'
+                error={ this.state.showError }/>
+            </Form.Field>
+            <Form.Button color='blue' center size='large'
+              style={ buttonStyle }>
+              Next
+            </Form.Button>
+          </Form>
+        </Grid.Column>
+      </Grid>
     )
   }
+}
+
+const headerStyle = {
+  fontWeight: 'normal',
+  fontSize: '1.75em',
+  marginBottom: '0.75em',
+}
+
+const subHeaderStyle = {
+  fontWeight: 'normal',
+  fontSize: '1.5em',
+  marginBottom: '1.5em',
+  marginTop: '0',
+}
+
+const buttonStyle = {
+  marginTop: '1.25em',
 }
 
 NameSegment.propTypes = {

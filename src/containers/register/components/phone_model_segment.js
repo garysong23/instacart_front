@@ -9,7 +9,7 @@ import {
   Radio
 } from 'semantic-ui-react'
 
-const HEADER_TEXT = 'Hi'
+const HEADER_TEXT = 'Please select the type of phone you have'
 
 class PhoneModelSegment extends React.Component {
   state = {
@@ -24,34 +24,53 @@ class PhoneModelSegment extends React.Component {
 
   render() {
     return(
-      <Segment padded>
-        <Grid padded>
-          <Grid.Column textAlign='center'>
-            <Form size='large' onSubmit={ this.props.onSubmit }>
-              <Header content={ HEADER_TEXT }/>
-              <Form.Field>
-                <Radio name='radio2'
-                  label='Choose this' value='this'
-                  checked={this.state.value === 'this'}
-                  onChange={this.handleChange}/>
-                <Radio name='radio2'
-                  label='Or that' value='that'
-                  checked={this.state.value === 'that'}
-                  onChange={this.handleChange}/>
-                <Radio name='radio2'
-                  label='Or thattt' value='thattt'
-                  checked={this.state.value === 'thattt'}
-                  onChange={this.handleChange}/>
-              </Form.Field>
-              <Form.Button color='blue' fluid size='large'>
-                Next
-              </Form.Button>
-            </Form>
-          </Grid.Column>
-        </Grid>
-      </Segment>
+      <Grid padded>
+        <Grid.Column textAlign='center'>
+          <Form size='large' onSubmit={ this.props.onSubmit }>
+            <Header textAlign='left'
+              content={ HEADER_TEXT } style={ questionStyle }/>
+            <Form.Field style={ optionStyle }>
+              <Radio label='Or that' name='radioGroup' value='that'
+                style={ optionTextStyle }/>
+            </Form.Field>
+            <Form.Field style={ optionStyle }>
+              <Radio label='Or that' name='radioGroup' value='that'
+                style={ optionTextStyle }/>
+            </Form.Field>
+            <Form.Field style={ optionStyle }>
+              <Radio label='Or that' name='radioGroup' value='that'
+                style={ optionTextStyle }/>
+            </Form.Field>
+            <Form.Button color='blue' center size='large'
+              style={ buttonStyle }>
+              Next
+            </Form.Button>
+          </Form>
+        </Grid.Column>
+      </Grid>
     )
   }
+}
+
+
+const questionStyle = {
+  fontWeight: 'normal',
+  fontSize: '1.25em',
+  marginBottom: '1.5em',
+  marginTop: '0',
+}
+
+const optionStyle = {
+  textAlign: 'left',
+  marginLeft: '1.25em',
+}
+
+const optionTextStyle = {
+  fontSize: '1em',
+}
+
+const buttonStyle = {
+  marginTop: '1.25em',
 }
 
 PhoneModelSegment.propTypes = {

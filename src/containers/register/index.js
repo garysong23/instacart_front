@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import {
   Segment,
-  Header,
 } from 'semantic-ui-react'
 
 import NameSegment from './components/name_segment'
@@ -12,12 +12,8 @@ import ZipCodeSegment from './components/zip_code_segment'
 import PhoneNumberSegment from './components/phone_number_segment'
 
 class Register extends Component {
-  constructor(props) {
-    super(props)
-    console.log('tesst')
-    this.state = {
-      segment: 'zip'
-    }
+  state = {
+    segment: 'zip'
   }
 
   renderSegment = () => {
@@ -72,7 +68,7 @@ class Register extends Component {
       this.setState({ segment: 'phone_number'})
       break
     case 'phone_number':
-      console.log('final')
+      this.props.history.push('confirmation')
       break
     default:
     }
@@ -80,10 +76,9 @@ class Register extends Component {
 
   render() {
     return (
-      <div style={ outerDivStyle }>
+      <div style={ divStyle }>
         <Segment padded='very' textAlign='center'
-          className='m0 borderRadius0 background-lightgray shadow-inset'
-          style={ outerSegmentStyle }>
+          style={ segmentStyle }>
           { this.renderSegment() }
         </Segment>
       </div>
@@ -91,18 +86,17 @@ class Register extends Component {
   }
 }
 
-const outerSegmentStyle = {
-  height: '100vh',
+const segmentStyle = {
   width: '70%',
   margin: 'auto',
-  minHeight: '700px',
 }
 
-const outerDivStyle = {
+const divStyle = {
   backgroundColor: 'khaki',
   height: '100vh',
   width: '100vw',
+  padding: '3em',
 }
 
 
-export default Register
+export default withRouter(Register)
