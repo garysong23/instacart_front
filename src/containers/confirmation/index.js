@@ -4,6 +4,8 @@ import {
   Header,
 } from 'semantic-ui-react'
 
+import Background from '../../imgs/background.png'
+
 import Mobile from '../../components/media/Mobile'
 import DesktopTablet from '../../components/media/DesktopTablet'
 
@@ -51,7 +53,8 @@ const dtSegmentStyle = {
 }
 
 const dtDivStyle = {
-  backgroundColor: 'khaki',
+  backgroundImage: `url('${ Background }')`,
+  backgroundRepeat: 'repeat',
   height: '100vh',
   width: '100vw',
   padding: '3em',
@@ -62,7 +65,8 @@ const mobileSegmentStyle = {
 }
 
 const mobileDivStyle = {
-  backgroundColor: 'khaki',
+  backgroundImage: `url('${ Background }')`,
+  backgroundRepeat: 'repeat',
   height: '100vh',
   width: '100vw',
   padding: '1.5em',

@@ -7,6 +7,8 @@ import {
 import Mobile from '../../components/media/Mobile'
 import DesktopTablet from '../../components/media/DesktopTablet'
 
+import Background from '../../imgs/background.png'
+
 import NameSegment from './components/name_segment'
 import CarSegment from './components/car_segment'
 import PhoneModelSegment from './components/phone_model_segment'
@@ -108,7 +110,8 @@ const dtSegmentStyle = {
 }
 
 const dtDivStyle = {
-  backgroundColor: 'khaki',
+  backgroundImage: `url('${ Background }')`,
+  backgroundRepeat: 'repeat',
   height: '100vh',
   width: '100vw',
   padding: '3em',
@@ -119,7 +122,8 @@ const mobileSegmentStyle = {
 }
 
 const mobileDivStyle = {
-  backgroundColor: 'khaki',
+  backgroundImage: `url('${ Background }')`,
+  backgroundRepeat: 'repeat',
   height: '100vh',
   width: '100vw',
   padding: '1.5em',

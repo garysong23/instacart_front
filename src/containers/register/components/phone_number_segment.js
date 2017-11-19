@@ -31,7 +31,7 @@ class PhoneNumberSegment extends React.Component {
                 iconPosition='left' placeholder='Phone Number'
                 error={ this.state.showError }/>
             </Form.Field>
-            <Form.Button color='blue' center size='large'
+            <Form.Button color='green' center size='large'
               style={ buttonStyle }>
               Next
             </Form.Button>

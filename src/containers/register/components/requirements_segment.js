@@ -48,7 +48,7 @@ class RequirementsSegment extends React.Component {
             <Header content={ HEADER_TEXT } style={ headerStyle }/>
             { this.generateConditions() }
             <Checkbox label={ CHECKBOX_COPY } style={ checkStyle }/>
-            <Form.Button color='blue' center size='large'
+            <Form.Button color='green' center size='large'
               style={ buttonStyle }>
               Next
             </Form.Button>

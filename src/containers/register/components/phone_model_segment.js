@@ -41,7 +41,7 @@ class PhoneModelSegment extends React.Component {
               <Radio label='Or that' name='radioGroup' value='that'
                 style={ optionTextStyle }/>
             </Form.Field>
-            <Form.Button color='blue' center size='large'
+            <Form.Button color='green' center size='large'
               style={ buttonStyle }>
               Next
             </Form.Button>
