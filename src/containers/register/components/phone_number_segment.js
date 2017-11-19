@@ -1,13 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import {
-  Segment,
   Grid,
   Header,
   Form,
-  Popup,
-  Item,
 } from 'semantic-ui-react'
 
 const HEADER_TEXT = 'How should we contact you?'

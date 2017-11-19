@@ -1,7 +1,7 @@
 import React from 'react'
+import { submitData } from '../requests'
 
 import {
-  Segment,
   Grid,
   Form,
   Header,
@@ -12,14 +12,28 @@ const SUBHEADER_TEXT = 'What is your name?'
 
 class NameSegment extends React.Component {
   state = {
+    firstName: '',
+    lastName: '',
     showError: false,
-    errorMessage: null,
   }
 
   handleSubmit = () => {
+    const hasFirstName = (this.state.firstName !== '')
+    const hasLastName = (this.state.lastName !== '')
+    if (hasFirstName && hasLastName) {
+      submitData({
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+      }).then(() => this.props.onSubmit())
+    } else {
+      this.setState({ showError: true })
+    }
   }
 
-  handleChange = () => this.setState({ showError: false })
+  handleChange = (_env, { name, value }) => this.setState({
+    [name]: value,
+    showError: false,
+  })
 
   render() {
     return(
@@ -28,15 +42,17 @@ class NameSegment extends React.Component {
           <Header content={ HEADER_TEXT } style={ headerStyle }/>
           <Header content={ SUBHEADER_TEXT } style={ subHeaderStyle }/>
           <Form size='large'
-            onSubmit={ this.props.onSubmit }>
+            onSubmit={ this.handleSubmit }>
             <Form.Field>
-              <Form.Input fluid name='password' icon='lock'
+              <Form.Input fluid name='firstName' icon='lock'
                 iconPosition='left' placeholder='First name'
+                onChange={ this.handleChange }
                 error={ this.state.showError }/>
             </Form.Field>
             <Form.Field>
-              <Form.Input fluid name='inviteCode' icon='ticket'
+              <Form.Input fluid name='lastName' icon='ticket'
                 iconPosition='left' placeholder='Last name'
+                onChange={ this.handleChange }
                 error={ this.state.showError }/>
             </Form.Field>
             <Form.Button color='blue' center size='large'

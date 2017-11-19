@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
   Segment,
   Header,
+  Button,
 } from 'semantic-ui-react'
 
 const HEADER_TEXT = 'All done!'

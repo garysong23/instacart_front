@@ -13,7 +13,7 @@ import PhoneNumberSegment from './components/phone_number_segment'
 
 class Register extends Component {
   state = {
-    segment: 'zip'
+    segment: 'name'
   }
 
   renderSegment = () => {
