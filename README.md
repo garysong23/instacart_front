@@ -6,6 +6,12 @@ client should render at http://localhost:8080/
 
 ### Overview
 Creates 3 end points.
+`\`, `\register`and `\confirmation`
+
+`\register` contains the bulk for the implementation
+
+Screenshots are available in `\demo_imgs`.
+Screenshots are sorted in order of occurance.
 
 ### Limitations
 The following could not be completed in time.
