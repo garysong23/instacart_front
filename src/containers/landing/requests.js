@@ -1,6 +1,5 @@
 import * as api from '../../api'
 
-export const testGet = () => {
-  console.log('testing')
-  return api.get('/test/get')
+export const submitData = (data) => {
+  return api.post('/output', { data: data })
 }

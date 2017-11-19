@@ -1,4 +1,6 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
+import { submitData } from '../requests'
 
 import {
   Segment,
@@ -7,23 +9,41 @@ import {
   Input,
 } from 'semantic-ui-react'
 
-const MASK_HEADER_TEXT = 'HELLO'
-const MASK_SUBHEADER_TEXT = 'HELLO'
+const MASK_HEADER_TEXT = 'Welcome to instacart.'
+const MASK_SUBHEADER_TEXT = 'Enter your email to get started.'
 
 class MastHead extends React.Component {
+  state = {
+    email: '',
+    showError: false,
+  }
+
+  handleSubmit = () => {
+    submitData({
+      email: this.state.email,
+    }).then(() => this.navigateToRegistration())
+  }
+
+  navigateToRegistration = () => {
+    this.props.history.push('register')
+  }
+
+  handleChange = (_env, { name, value }) => this.setState({
+    [name]: value,
+    showError: false,
+  })
+
   render() {
     return(
       <Segment inverted vertical
         style={ outerSegmentStyle }>
         <Container textAlign='center'
           style={ centerContainerStyle }>
-          <Header inverted
-            className='font2-5 mb1-25 mt0-5'
-            content={ MASK_HEADER_TEXT }/>
-          <Header inverted
-            className='fw-normal font1-75 mt0 mb1-5'
-            content={ MASK_SUBHEADER_TEXT }/>
-          <Input action='Get Started'
+          <Header inverted content={ MASK_HEADER_TEXT } style={ headerStyle }/>
+          <Header inverted content={ MASK_SUBHEADER_TEXT } style={ subHeaderStyle }/>
+          <Input action='Get Started' name='email' color='green'
+            onClick={ this.handleSubmit }
+            onChange={ this.handleChange }
             placeholder='hello@instacart.com'/>
         </Container>
       </Segment>
@@ -47,4 +67,17 @@ const centerContainerStyle = {
   margin: 'auto',
 }
 
-export default MastHead
+const headerStyle = {
+  fontWeight: 'normal',
+  fontSize: '1.75em',
+  marginBottom: '0.75em',
+}
+
+const subHeaderStyle = {
+  fontWeight: 'normal',
+  fontSize: '1.5em',
+  marginBottom: '1.5em',
+  marginTop: '0',
+}
+
+export default withRouter(MastHead)

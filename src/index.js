@@ -12,9 +12,9 @@ import Confirmation from './containers/confirmation'
 ReactDOM.render((
   <BrowserRouter>
     <Switch>
-      {/* <Route path='/' component={ Landing } /> */}
       <Route path='/register' component={ Register } />
       <Route path='/confirmation' component={ Confirmation } />
+      <Route path='/' component={ Landing } />
     </Switch>
   </BrowserRouter>
 ), document.getElementById('root'))

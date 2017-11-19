@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 
 import MastHead from './components/masthead'
+import Background from '../../imgs/background.png'
 
 class Landing extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return (
       <div style={ outerDivStyle }>
@@ -17,10 +14,10 @@ class Landing extends Component {
 }
 
 const outerDivStyle = {
-  backgroundColor: 'khaki',
+  backgroundImage: `url('${ Background }')`,
+  backgroundRepeat: 'repeat',
   height: '100vh',
   width: '100vw',
 }
-
 
 export default Landing
