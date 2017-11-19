@@ -1,22 +1,16 @@
 import React, { Component } from 'react'
-import { Button } from 'semantic-ui-react'
 
-import {
-  testGet
-} from './requests'
+import MastHead from './components/masthead'
 
 class Landing extends Component {
   constructor(props) {
     super(props)
-    console.log('tesst')
-    testGet()
   }
 
   render() {
     return (
       <div style={ outerDivStyle }>
-        <p>Hello world</p>
-        <Button content='Hi'/>
+        <MastHead/>
       </div>
     )
   }
