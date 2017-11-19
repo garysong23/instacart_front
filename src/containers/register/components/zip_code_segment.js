@@ -10,6 +10,8 @@ import {
   Item,
 } from 'semantic-ui-react'
 
+const HEADER_TEXT = 'Which region do you serve?'
+
 class ZipCodeSegment extends React.Component {
   state = {
     showError: false,
@@ -26,10 +28,18 @@ class ZipCodeSegment extends React.Component {
       <Segment padded>
         <Grid padded>
           <Grid.Column textAlign='center'>
+            <Header
+              className='fw-normal font1-75 mt0 mb1-5'
+              content={ HEADER_TEXT }/>
             <Form size='large'
               onSubmit={ this.props.onSubmit }>
-              <Form.Button color='blue' fluid size='large'>
-                Sign Up
+              <Form.Field>
+                <Form.Input fluid name='password' icon='lock'
+                  iconPosition='left' placeholder='First name'
+                  error={ this.state.showError }/>
+              </Form.Field>
+              <Form.Button color='blue' center size='large'>
+                Next
               </Form.Button>
             </Form>
           </Grid.Column>

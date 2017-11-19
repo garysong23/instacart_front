@@ -16,7 +16,7 @@ class Register extends Component {
     super(props)
     console.log('tesst')
     this.state = {
-      segment: 'name'
+      segment: 'zip'
     }
   }
 
@@ -93,6 +93,8 @@ class Register extends Component {
 
 const outerSegmentStyle = {
   height: '100vh',
+  width: '70%',
+  margin: 'auto',
   minHeight: '700px',
 }
 

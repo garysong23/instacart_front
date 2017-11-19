@@ -6,9 +6,11 @@ import {
   Grid,
   Header,
   Form,
-  Popup,
-  Item,
+  Radio,
 } from 'semantic-ui-react'
+
+const QUESTION_1 = 'Do you own or have consistent access to a car?'
+const QUESTION_2 = 'Do you have at least two years driving experience?'
 
 class CarSegment extends React.Component {
   state = {
@@ -26,10 +28,31 @@ class CarSegment extends React.Component {
       <Segment padded>
         <Grid padded>
           <Grid.Column textAlign='center'>
-            <Form size='large'
-              onSubmit={ this.props.onSubmit }>
+            <Form size='large' onSubmit={ this.props.onSubmit }>
+              <Header content={ QUESTION_1 }/>
+              <Form.Field>
+                <Radio name='radio1'
+                  label='Choose this' value='this'
+                  checked={this.state.value === 'this'}
+                  onChange={this.handleChange}/>
+                <Radio name='radio1'
+                  label='Or that' value='that'
+                  checked={this.state.value === 'that'}
+                  onChange={this.handleChange}/>
+              </Form.Field>
+              <Header content={ QUESTION_2 }/>
+              <Form.Field>
+                <Radio name='radio2'
+                  label='Choose this' value='this'
+                  checked={this.state.value === 'this'}
+                  onChange={this.handleChange}/>
+                <Radio name='radio2'
+                  label='Or that' value='that'
+                  checked={this.state.value === 'that'}
+                  onChange={this.handleChange}/>
+              </Form.Field>
               <Form.Button color='blue' fluid size='large'>
-                Sign Up
+                Next
               </Form.Button>
             </Form>
           </Grid.Column>
